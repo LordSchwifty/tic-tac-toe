@@ -1,13 +1,24 @@
 import './App.css';
-import { React, Component} from 'react';
+import React, {useState} from 'react';
 import Box from './components/Box'
 import Board from './components/Board'
 
 function App() {
-  const board = ['X','X','X','X','X','X','X','X','X',]
+  const [board, setBoard] = useState(Array(9).fill(null));
+  
+  const handleBoxClick = (boxIdx) => {
+    const updatedBoard = board.map((value, idx) => {
+      if (idx === boxIdx) {
+        return "X";
+      } else {
+        return value;
+      }
+    })
+    setBoard(updatedBoard)
+  }
   return (
     <div className="App">
-     <Board board={board} onClick={null} />
+     <Board board={board} onClick={handleBoxClick} />
     </div>
   )
 }
