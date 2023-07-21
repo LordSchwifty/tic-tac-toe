@@ -1,12 +1,13 @@
 import './App.css';
 import { React, Component} from 'react';
 import Box from './components/Box'
+import Board from './components/Board'
 
 function App() {
   const board = ['X','X','X','X','X','X','X','X','X',]
   return (
     <div className="App">
-     <Box value='x' onClick={null}/>
+     <Board board={board} onClick={null} />
     </div>
   )
 }
